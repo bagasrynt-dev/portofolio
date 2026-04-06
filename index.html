@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Bagas Riyanto - Portofolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#0f172a', /* Primer: Biru Navy */
+                        cream: '#fcfbf9', /* Sekunder: Putih Krem */
+                        teal: {
+                            light: '#5eead4',
+                            DEFAULT: '#0d9488', /* Aksen: Teal Lembut */
+                            dark: '#0f766e'
+                        },
+                        gold: '#d97706'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fcfbf9;
+            color: #334155;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f172a; 
+        }
+
+        /* Fade-in Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Blob Shape */
+        .blob-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+            border: 4px solid #0d9488;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans selection:bg-teal selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-cream/80 backdrop-blur-md border-b border-slate-200" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-lg md:text-xl lg:text-2xl font-bold text-navy tracking-tight hover:text-teal transition-colors duration-300">
+                        Muhamad Bagas Riyanto
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-teal transition-colors">Tentang Saya</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-teal transition-colors">Pengalaman</a>
+                    <a href="#education" class="text-sm font-medium text-slate-600 hover:text-teal transition-colors">Pendidikan</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-navy text-white text-sm font-medium rounded-full hover:bg-teal hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">Kontak</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-navy focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-slate-200">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-teal hover:bg-slate-50 rounded-md">Tentang Saya</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-teal hover:bg-slate-50 rounded-md">Pengalaman</a>
+                <a href="#education" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-teal hover:bg-slate-50 rounded-md">Pendidikan</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-teal font-semibold hover:bg-slate-50 rounded-md">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center">
+        <div class="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12">
+            <!-- Text Content -->
+            <div class="w-full md:w-3/5 text-center md:text-left fade-in-up">
+                <p class="text-teal font-medium tracking-wide uppercase mb-3 text-sm">Selamat Datang, Saya</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-4">
+                    Muhamad Bagas Riyanto
+                </h1>
+                <h2 class="text-lg md:text-xl text-slate-600 font-light mb-8 max-w-2xl">
+                    Lulusan Bimbingan dan Konseling | <span class="font-medium text-navy">Ahli Komunikasi & Pengelola Operasional Lapangan</span>
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="px-8 py-3.5 bg-teal text-white font-medium rounded-full hover:bg-teal-dark hover:shadow-lg hover:shadow-teal/30 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i> Hubungi Saya
+                    </a>
+                    <!-- Tombol Lihat CV -->
+                    <a href="CV_Muhamad Bagas Riyanto (General).pdf" target="_blank" download class="px-8 py-3.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-full hover:border-navy hover:text-navy transition-all duration-300">
+                        <i class="fas fa-download mr-2"></i> Lihat CV
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Bagian Foto Profil (Menggunakan file lokal sesuai permintaan) -->
+            <div class="w-full md:w-2/5 flex justify-center fade-in-up delay-100">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <!-- Elemen dekoratif latar belakang -->
+                    <div class="absolute inset-0 bg-teal/10 blob-shape transform scale-105 -z-10"></div>
+                    <!-- Gambar Profil -->
+                    <img src="F. JasKePut_LaMer.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Bagas+Riyanto&background=0f172a&color=fff&size=512'" alt="Muhamad Bagas Riyanto" class="w-full h-full object-cover object-top blob-shape shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Profil & Kompetensi</h2>
+                <div class="w-20 h-1 bg-teal mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-center md:text-lg text-slate-600 leading-relaxed fade-in-up delay-100">
+                <p class="mb-6">
+                    Saya adalah lulusan <strong>Bimbingan dan Konseling</strong> dari UNTIRTA dengan kompetensi kuat dalam teknik komunikasi, manajemen konflik, dan psikologi interpersonal. 
+                </p>
+                <p class="mb-6">
+                    Berpengalaman dalam mengelola koordinasi operasional lapangan serta administrasi pendidikan dengan fokus pada ketepatan waktu dan efektivitas kerja. Memiliki kemampuan kepemimpinan, adaptabilitas yang tinggi, serta analisis situasi yang baik untuk mendukung pencapaian target organisasi di berbagai lingkungan kerja.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Pengalaman Kerja</h2>
+                <div class="w-20 h-1 bg-teal mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-teal/30 ml-3 md:ml-0">
+                    
+                    <!-- Experience Item 1 -->
+                    <div class="mb-12 pl-8 md:pl-10 relative fade-in-up">
+                        <div class="absolute w-6 h-6 bg-teal rounded-full -left-[13px] border-4 border-cream top-1"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-navy">Koordinator Lapangan / Tour Leader</h3>
+                                    <h4 class="text-teal font-medium">Srikandi Travel</h4>
+                                </div>
+                                <span class="inline-block mt-2 md:mt-0 bg-slate-100 text-slate-600 text-sm px-4 py-1.5 rounded-full font-medium">Feb 2023 - Feb 2026</span>
+                            </div>
+                            <ul class="list-none space-y-3 text-slate-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Mengoordinasikan komunikasi intensif dengan 300+ stakeholder untuk memastikan operasional lancar.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Mengelola logistik dan jadwal kegiatan detail untuk meningkatkan efisiensi skala besar.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Memimpin koordinasi kelompok 50+ orang dalam lingkungan dinamis dengan penyelesaian masalah profesional cepat.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="mb-4 pl-8 md:pl-10 relative fade-in-up delay-100">
+                        <div class="absolute w-6 h-6 bg-slate-300 rounded-full -left-[13px] border-4 border-cream top-1"></div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-navy">Tenaga Penginval (Guru Pengganti)</h3>
+                                    <h4 class="text-slate-500 font-medium">SMPN 1 Kronjo</h4>
+                                </div>
+                                <span class="inline-block mt-2 md:mt-0 bg-slate-100 text-slate-600 text-sm px-4 py-1.5 rounded-full font-medium">Jan 2023 - Feb 2023</span>
+                            </div>
+                            <ul class="list-none space-y-3 text-slate-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Mengelola kegiatan instruksional mandiri di 8 kelas berbeda (300+ siswa).</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Melakukan penyampaian materi komunikatif dan observasi dinamika kelompok.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-teal mt-1.5 mr-3 text-sm"></i>
+                                    <span>Penyelesaian administrasi dan penilaian belajar secara sistematis dan tepat waktu.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Skills Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Education -->
+                <div class="fade-in-up">
+                    <h2 class="text-3xl font-bold text-navy mb-8 flex items-center">
+                        <i class="fas fa-graduation-cap text-teal mr-4"></i> Pendidikan
+                    </h2>
+                    <div class="bg-cream p-8 rounded-2xl border border-slate-100 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                        <!-- Decorative bg -->
+                        <div class="absolute -right-10 -top-10 text-teal/5 text-9xl">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        
+                        <div class="relative z-10">
+                            <span class="text-sm font-semibold text-teal tracking-wider uppercase">Agustus 2021 - November 2025</span>
+                            <h3 class="text-2xl font-bold text-navy mt-2 mb-1">S1 - Bimbingan dan Konseling</h3>
+                            <h4 class="text-lg text-slate-600 font-medium mb-6">Universitas Sultan Ageng Tirtayasa (UNTIRTA)</h4>
+                            
+                            <div class="bg-white p-4 rounded-xl border border-slate-100 mb-4">
+                                <p class="text-sm text-slate-500 mb-1">Judul Skripsi:</p>
+                                <p class="text-slate-700 italic font-medium">"Kecemasan Berbicara Ditinjau dari Lingkungan Belajar (Studi Fenomenologis pada Siswa Kelas X MAN 4 Tangerang)"</p>
+                            </div>
+                            
+                            <div class="inline-block bg-teal text-white px-4 py-2 rounded-lg font-bold">
+                                IPK: 3,57
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="fade-in-up delay-100">
+                    <h2 class="text-3xl font-bold text-navy mb-8 flex items-center">
+                        <i class="fas fa-tools text-teal mr-4"></i> Keahlian & Bahasa
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Technical Skills -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-navy mb-4">Hard Skills & OS</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2 rounded-lg text-sm font-medium flex items-center"><i class="fas fa-file-word mr-2"></i> Microsoft Word</span>
+                                <span class="bg-green-50 text-green-700 border border-green-200 px-4 py-2 rounded-lg text-sm font-medium flex items-center"><i class="fas fa-file-excel mr-2"></i> Microsoft Excel</span>
+                                <span class="bg-orange-50 text-orange-700 border border-orange-200 px-4 py-2 rounded-lg text-sm font-medium flex items-center"><i class="fas fa-file-powerpoint mr-2"></i> Power Point</span>
+                                <span class="bg-slate-100 text-slate-700 border border-slate-200 px-4 py-2 rounded-lg text-sm font-medium flex items-center"><i class="fab fa-windows mr-2 text-sky-600"></i> MS Windows</span>
+                            </div>
+                        </div>
+
+                        <!-- Soft Skills -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-navy mb-4">Kemampuan Personal</h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center text-slate-600"><i class="fas fa-users text-teal w-6"></i> Kepemimpinan</div>
+                                <div class="flex items-center text-slate-600"><i class="fas fa-handshake text-teal w-6"></i> Kerja Sama Tim</div>
+                                <div class="flex items-center text-slate-600"><i class="fas fa-folder-open text-teal w-6"></i> Manajemen Administrasi</div>
+                                <div class="flex items-center text-slate-600"><i class="fas fa-comments text-teal w-6"></i> Komunikasi Interpersonal</div>
+                                <div class="flex items-center text-slate-600"><i class="fas fa-lightbulb text-teal w-6"></i> Pemecahan Masalah</div>
+                                <div class="flex items-center text-slate-600"><i class="fas fa-sync-alt text-teal w-6"></i> Adaptabilitas</div>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-navy mb-4">Bahasa</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-slate-700">Indonesia (Aktif)</span>
+                                        <span class="text-sm font-medium text-teal">100%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 rounded-full h-2">
+                                        <div class="bg-teal h-2 rounded-full progress-bar" style="width: 0%" data-width="100%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-slate-700">Inggris (Menengah - Pasif)</span>
+                                        <span class="text-sm font-medium text-teal">60%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 rounded-full h-2">
+                                        <div class="bg-teal h-2 rounded-full opacity-70 progress-bar" style="width: 0%" data-width="60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-navy relative overflow-hidden">
+        <!-- Decor elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-teal/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Mari Terhubung</h2>
+                <p class="text-slate-400">Saya terbuka untuk peluang profesional dan diskusi menarik.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Email -->
+                <a href="mailto:bagasbi030304@gmail.com?subject=Pesan%20dari%20Website%20Portofolio" onclick="window.location.href='mailto:bagasbi030304@gmail.com?subject=Pesan%20dari%20Website%20Portofolio';" class="group block cursor-pointer touch-manipulation active:scale-95 bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:bg-teal hover:border-teal transition-all duration-300 text-center fade-in-up">
+                    <div class="w-12 h-12 bg-slate-700 group-hover:bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
+                        <i class="fas fa-envelope text-xl text-teal group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-medium mb-1">Email</h3>
+                    <p class="text-slate-400 text-sm group-hover:text-white/80 break-all">bagasbi030304@gmail.com</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/mbagasrynt" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer touch-manipulation active:scale-95 bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:bg-[#0A66C2] hover:border-[#0A66C2] transition-all duration-300 text-center fade-in-up delay-75">
+                    <div class="w-12 h-12 bg-slate-700 group-hover:bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
+                        <i class="fab fa-linkedin-in text-xl text-teal group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-medium mb-1">LinkedIn</h3>
+                    <p class="text-slate-400 text-sm group-hover:text-white/80">mbagasrynt</p>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6281385828989" target="_blank" rel="noopener noreferrer" class="group block cursor-pointer touch-manipulation active:scale-95 bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 text-center fade-in-up delay-150">
+                    <div class="w-12 h-12 bg-slate-700 group-hover:bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
+                        <i class="fab fa-whatsapp text-xl text-teal group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-medium mb-1">WhatsApp</h3>
+                    <p class="text-slate-400 text-sm group-hover:text-white/80">+62 813-8582-8989</p>
+                </a>
+
+                <!-- Location -->
+                <div class="group bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center fade-in-up delay-200">
+                    <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-xl text-teal"></i>
+                    </div>
+                    <h3 class="text-white font-medium mb-1">Lokasi</h3>
+                    <p class="text-slate-400 text-sm">Kab. Tangerang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy border-t border-slate-800 py-8 text-center">
+        <p class="text-slate-500 text-sm">
+            &copy; 2026 Muhamad Bagas Riyanto. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Scripts for Interactivity & Animation -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-sm');
+            }
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger progress bars if it's the skills section
+                    const progressBars = entry.target.querySelectorAll('.progress-bar');
+                    progressBars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Apply observer to elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
